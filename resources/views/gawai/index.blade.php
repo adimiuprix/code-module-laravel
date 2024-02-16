@@ -1,5 +1,6 @@
 @extends('layouts.template')
 @section('content')
+<a href="{{ route('gawai.tambah') }}">Tambah data</a>
 <div class="table-responsive pt-5">
     <table class="table table-bordered border-primary table-primary">
         <thead>
