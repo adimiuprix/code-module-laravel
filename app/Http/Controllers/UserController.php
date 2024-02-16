@@ -14,12 +14,12 @@ class UserController extends Controller
     public function index(){
         $nama = 'Reynold';
 
-        dd($nama);
+        dump($nama);
     }
 
     public function myprofile(){
         $nama = 'Arnold';
 
-        dd($nama);
+        dump($nama);
     }
 }
