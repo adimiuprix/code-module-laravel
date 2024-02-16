@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\GawaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,14 @@ use App\Http\Controllers\RequestController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Membuat route dasar
 Route::get('salam', function (){
     return 'Ini salam pembuka';
+});
+
+// view nya ada di folder resources/views/
+Route::get('/', function () {
+    return view('index');
 });
 
 // Membuat route default
@@ -48,3 +50,25 @@ Route::any('routesaniy', function () {
 // Route bernama
 Route::get('profile', [UserController::class, 'myprofile'])->name('profile');
 Route::get('request', [RequestController::class, 'index']);
+
+// Melakukan grup pada route
+// Cara #1
+// Route::group(function () {
+//     // Rute-rute yang akan dimasukkan ke dalam grup ini
+// });
+// Cara #2 Memberi nama pada group
+// Route::prefix('namaGroup')->group(function () {
+//     // Rute-rute yang akan dimasukkan ke dalam grup ini
+// });
+// // Cara #3 Membungkus dengan Middleware
+// Route::middleware('namaMiddleware')->prefix('namaPrefix')->group(function () {
+//     // Rute-rute yang akan dimasukkan ke dalam grup ini
+// });
+
+// Route::prefix('namaGroup')->group(function () {
+//     // Rute-rute yang akan dimasukkan ke dalam grup ini
+// });
+
+Route::prefix('gawai')->group(function(){
+    Route::get('index', [GawaiController::class, 'index'])->name('gawai.index');    // Beri method nama isinya boleh string apa aja
+});
