@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('gawais', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nama')->nullable();
+            $table->text('pesan')->nullable();
+            $table->integer('angka')->nullable();
+            $table->timestamps();   // create_at, update_at
         });
     }
 
