@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Gawai;
 
 class GawaiController extends Controller
@@ -66,4 +67,49 @@ class GawaiController extends Controller
             abort(405, 'Metode tidak diizinkan');
         }
     }
+
+    public function edit($id){
+        $gawai = Gawai::findOrFail($id);      
+
+        $data = [
+            'id' => $gawai->id,
+            'nama' => $gawai->nama,
+            'pesan' => $gawai->pesan,
+            'angka' => $gawai->angka
+        ];
+
+        return view('gawai.ubah', $data);
+    }
+
+    // Cara #1 menggunakan Facades
+    // Kalo Facades memerlukan izin menggunakan fillable
+    public function update(Request $request, $id){
+        DB::table('gawais')
+        ->where('id', $id)
+        ->update([
+            'nama' => $request->input('nama'),
+            'pesan' => $request->input('pesan'),
+            'angka' => $request->input('angka'),
+        ]);
+        
+        return redirect()->route('gawai.index')->with('success', 'Data berhasil diubah!');
+    }
+
+    //Cara #2 menggunakan Eloquent
+    // public function update(Request $request, $id){
+    //     // Temukan datanya menggunakan Eloquent dan ID (sesuaikan berdasarkan kriteria validasi)
+    //     $gawai = Gawai::findOrFail($id);
+
+    //     // Validasi masukan (sesuaikan aturan validasi sesuai kebutuhan)
+    //     $validasi = $request->validate([
+    //         'nama' => 'required|string|max:255',
+    //         'pesan' => 'required|string',
+    //         'angka' => 'required|numeric',
+    //     ]);
+
+    //     // Update data using $gawai object (preferable over hardcoding values)
+    //     $gawai->update($validasi);
+    //     return redirect()->route('gawai.index')->with('success', 'Data berhasil diubah!');
+    // }
+
 }

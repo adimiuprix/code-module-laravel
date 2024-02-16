@@ -9,6 +9,7 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Pesan</th>
                 <th scope="col">Angka</th>
+                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,10 @@
                 <th scope="col">{{ $gawai->nama }}</th>
                 <th scope="col">{{ $gawai->pesan }}</th>
                 <th scope="col">{{ $gawai->angka }}</th>
+                <th scope="col">
+                    <a href="{{ route('gawai.edit' , $gawai->id) }}">Edit</a>
+                    <a href="">Hapus</a>
+                </th>
             </tr>
         @endforeach
         </tbody>

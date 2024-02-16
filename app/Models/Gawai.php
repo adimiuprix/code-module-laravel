@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Gawai extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'pesan',
+        'angka',
+    ];
 }

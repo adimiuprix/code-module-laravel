@@ -73,6 +73,7 @@ Route::prefix('gawai')->group(function(){
     Route::get('/', [GawaiController::class, 'index'])->name('gawai.index');    // Beri method nama isinya boleh string apa aja
     Route::get('tambah', [GawaiController::class, 'add'])->name('gawai.tambah');
     Route::post('store', [GawaiController::class, 'store'])->name('gawai.store');
-
     Route::match(['get', 'post'], 'handle', [GawaiController::class, 'handle'])->name('gawai.handle');
+    Route::get('edit/{id}', [GawaiController::class, 'edit'])->name('gawai.edit');
+    Route::post('update/{id}', [GawaiController::class, 'update'])->name('gawai.update');
 });
