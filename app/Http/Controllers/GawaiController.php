@@ -97,19 +97,29 @@ class GawaiController extends Controller
 
     //Cara #2 menggunakan Eloquent
     // public function update(Request $request, $id){
-    //     // Temukan datanya menggunakan Eloquent dan ID (sesuaikan berdasarkan kriteria validasi)
+    //     Temukan datanya menggunakan Eloquent dan ID (sesuaikan berdasarkan kriteria validasi)
     //     $gawai = Gawai::findOrFail($id);
 
-    //     // Validasi masukan (sesuaikan aturan validasi sesuai kebutuhan)
+    //     Validasi masukan (sesuaikan aturan validasi sesuai kebutuhan)
     //     $validasi = $request->validate([
     //         'nama' => 'required|string|max:255',
     //         'pesan' => 'required|string',
     //         'angka' => 'required|numeric',
     //     ]);
 
-    //     // Update data using $gawai object (preferable over hardcoding values)
+    //     Perbarui data menggunakan objek $gawai (lebih disukai daripada nilai hardcoding)
     //     $gawai->update($validasi);
     //     return redirect()->route('gawai.index')->with('success', 'Data berhasil diubah!');
     // }
 
+    public function  destroy($id) {
+        // Temukan data berdasarkan ID
+        $data = Gawai::findOrFail($id);
+
+        // Hapus data
+        $data->delete();
+
+        // Berikan pesan konfirmasi
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+    }
 }

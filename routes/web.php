@@ -76,4 +76,5 @@ Route::prefix('gawai')->group(function(){
     Route::match(['get', 'post'], 'handle', [GawaiController::class, 'handle'])->name('gawai.handle');
     Route::get('edit/{id}', [GawaiController::class, 'edit'])->name('gawai.edit');
     Route::post('update/{id}', [GawaiController::class, 'update'])->name('gawai.update');
+    Route::delete('delete/{id}', [GawaiController::class, 'destroy'])->name('gawai.destroy');
 });

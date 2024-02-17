@@ -21,7 +21,11 @@
                 <th scope="col">{{ $gawai->angka }}</th>
                 <th scope="col">
                     <a href="{{ route('gawai.edit' , $gawai->id) }}">Edit</a>
-                    <a href="">Hapus</a>
+                    <form action="{{ route('gawai.destroy', $gawai->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
                 </th>
             </tr>
         @endforeach
