@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\GawaiController;
+use App\Http\Controllers\FindPersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,4 +78,10 @@ Route::prefix('gawai')->group(function(){
     Route::get('edit/{id}', [GawaiController::class, 'edit'])->name('gawai.edit');
     Route::post('update/{id}', [GawaiController::class, 'update'])->name('gawai.update');
     Route::delete('delete/{id}', [GawaiController::class, 'destroy'])->name('gawai.destroy');
+});
+
+Route::prefix('find')->group(function(){
+    Route::get('/', [FindPersonController::class, 'index']);
+    Route::get('delete', [FindPersonController::class, 'delete']);
+    Route::get('pesawat', [FindPersonController::class, 'pesawat']);
 });
