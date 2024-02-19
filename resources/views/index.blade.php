@@ -7,7 +7,8 @@ Pemisah antar directory gunakan tanda "." saja --}}
 
 <ul class="list-group">
     <li class="list-group-item"><a href="{{ route('gawai.index') }}">Data Tabel (Gawai)</a></li>
-    <li class="list-group-item">Find</li>
+    <li class="list-group-item"><a href="{{ route('find.index') }}">Find</a></li>
+    <li class="list-group-item"><a href="{{ route('eloquent.index') }}">Eloquent</a></li>
     <li class="list-group-item">Parshing data</li>
     <li class="list-group-item">Relasi Eloquent</li>
 </ul>

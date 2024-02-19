@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\GawaiController;
 use App\Http\Controllers\FindPersonController;
-
+use App\Http\Controllers\FlightController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +43,7 @@ Route::get('user', [UserController::class, 'index']);
 Route::match(['get', 'post'], 'namaroutes', function () {
     // ...
 });
- 
+
 Route::any('routesaniy', function () {
     // ...
 });
@@ -81,7 +81,14 @@ Route::prefix('gawai')->group(function(){
 });
 
 Route::prefix('find')->group(function(){
-    Route::get('/', [FindPersonController::class, 'index']);
+    Route::get('/', [FindPersonController::class, 'index'])->name('find.index');
     Route::get('delete', [FindPersonController::class, 'delete']);
     Route::get('pesawat', [FindPersonController::class, 'pesawat']);
+});
+
+Route::prefix('eloquent')->group(function(){
+    Route::get('/', [FlightController::class, 'index'])->name('eloquent.index');
+    Route::get('get-all', [FlightController::class, 'All'])->name('eloquent.all');
+    Route::get('refresh', [FlightController::class, 'Refresh'])->name('eloquent.refresh');
+    Route::get('findorfail', [FlightController::class, 'TemukanAtauGagal'])->name('eloquent.findorfail');
 });
