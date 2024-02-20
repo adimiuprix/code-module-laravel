@@ -6,6 +6,8 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\GawaiController;
 use App\Http\Controllers\FindPersonController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\OnetoOneController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,4 +93,6 @@ Route::prefix('eloquent')->group(function(){
     Route::get('get-all', [FlightController::class, 'All'])->name('eloquent.all');
     Route::get('refresh', [FlightController::class, 'Refresh'])->name('eloquent.refresh');
     Route::get('findorfail', [FlightController::class, 'TemukanAtauGagal'])->name('eloquent.findorfail');
+    Route::get('toko/{id}', [OnetoOneController::class, 'show'])->name('eloquent.onetoone');
 });
+
