@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pesawats', function (Blueprint $table) {
             $table->id();
             $table->string('code_pesawat');
-            $table->interger('pemilik');
+            $table->bigInteger('pemilik');
             $table->timestamps();
         });
     }
