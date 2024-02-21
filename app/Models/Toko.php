@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Toko extends Model
 {
     use HasFactory;
 
-    public function buku()
+    public function buku() : HasOne
     {
         return $this->hasOne(Buku::class);
     }
