@@ -39,6 +39,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        // 'nama_kolom' => 'type_data',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
