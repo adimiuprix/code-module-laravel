@@ -44,7 +44,7 @@ class FlightController extends Controller
     }
 
     public function TemukanAtauGagal(){
-        $flight = Flight::findOrFail(2);
+        $flight = Flight::findOrFail(1);
 
         dd($flight);
     }
