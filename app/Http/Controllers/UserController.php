@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -21,5 +22,11 @@ class UserController extends Controller
         $nama = 'Arnold';
 
         dump($nama);
+    }
+
+    public function onetoone(){
+        $users = User::first()->get();
+
+        return view('eloquent.phonedata', compact('users'));
     }
 }

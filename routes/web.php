@@ -94,6 +94,6 @@ Route::prefix('eloquent')->group(function(){
     Route::get('get-all', [FlightController::class, 'All'])->name('eloquent.all');
     Route::get('refresh', [FlightController::class, 'Refresh'])->name('eloquent.refresh');
     Route::get('findorfail', [FlightController::class, 'TemukanAtauGagal'])->name('eloquent.findorfail');
-    Route::get('toko/{id}', [OnetoOneController::class, 'show'])->name('eloquent.onetoone');
+    Route::get('getphone', [UserController::class, 'onetoone'])->name('eloquent.onetoone');
     Route::get('posts', [PostController::class, 'index'])->name('eloquent.belongsto');
 });
