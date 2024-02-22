@@ -9,7 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    // Buat fungsi untuk menyambungkan model Comment
     public function comments(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);  // Disini gunakan method hasMany dan mengisi parameternya model Comment
     }
 }

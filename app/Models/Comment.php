@@ -9,7 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    // Di bagian ini kita sambungin Model post
     public function post(){
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class);   // gunakan method belongsTo dengan parameter nya model Post
     }
 }
